@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <style>
+        html, body {
+            margin: 0;
+            background-color: rgb(50, 50, 50);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        div {
+            box-sizing: border-box;
+        }
+        .img-back {
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgb(50, 50, 50);
+            border-radius: 30px;
+            display: inline-block;
+            box-shadow: 0px 5px 5px 2px rgb(26, 26, 26);
+            margin: 10px;
+            opacity: 40%;
+            transition-duration: 0.3s;
+        }
+        .t1 {
+            background-image: url('./20469237.jpeg');
+            opacity: 100%;
+        }
+        .t2 {
+            background-image: url('./2.jpeg');
+        }
+        .t3 {
+            background-image: url('./20463990.jpeg');
+        }
+        .t4 {
+            background-image: url('./3.jpeg');
+        }
+        .container {
+            width: 650px;
+            display: inline-block;
+        }
+        .title {
+            font-weight: 600;
+            font-size: 70px;
+        }
+        .artist {
+            font-size: 25px;
+            color: rgb(171, 171, 171)
+        }
+        #c2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 570px;
+            width: 430px;
+            transition-duration: 0.3s;
+            float: inherit;
+        }
+        .underline {
+            border-bottom: 2px solid gray;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            width: 200px;
+        }
+        .desc {
+            font-size: 18px;
+            line-height: 160%;
+            color: rgb(171, 171, 171);
+        }
+        .b {
+            font-size: 25px;
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <div class="container">
+        <div class="img-back t1" onclick="func(1)"></div>
+        <div class="img-back t2" onclick="func(2)"></div>
+        <div class="img-back t3" onclick="func(3)"></div>
+        <div class="img-back t4" onclick="func(4)"></div>
+    </div>
+    <div class="container" id="c2">
+        <div class="title">하지마</div>
+        <div class="artist">릴러말즈, 토일</div>
+        <div class="underline"></div>
+        <div class="desc">
+            넌 뭘 해도 예쁘니까 화장하지마 <br>
+            스케줄 비워놨으니까 딴 데 가지마 <br>
+            I love you so much 조금 뻔하지만 <br>
+            더는 아무 말도 내게 하지마 <br>
+            Baby 둘이 여행 가자 Skrr skrr <br>
+            <span class="b">우리 목적지는 속초</span>
+            바다 보이는 곳 어디던 <br>
+            다 좋아 벗어 재끼자 전부 <br>
+            휙휙 3점 슛 Swish <br>
+            왼손은 거들 뿐 Swish <br>
+            다 한 거지 네 얼굴이 <br>
+        </div>
+    </div>
+
+    <script>
+        const title = ['하지마', '너 포에버', '자가격리', '만남은 쉽고...']
+        const artist = ['릴러말즈, 토일', '토일, 염따 외 2명', '릴러말즈, 토일', '릴러말즈, 토일 외 1명']
+        const desc = [
+            '넌 뭘 해도 예쁘니까 화장하지마 <br>스케줄 비워놨으니까 딴 데 가지마 <br>I love you so much 조금 뻔하지만 <br>더는 아무 말도 내게 하지마 <br>Baby 둘이 여행 가자 Skrr skrr <br><span class="b">우리 목적지는 속초</span>바다 보이는 곳 어디던 <br>다 좋아 벗어 재끼자 전부 <br>휙휙 3점 슛 Swish <br>왼손은 거들 뿐 Swish <br>다 한 거지 네 얼굴이 <br>',
+            '너 forever<br>어느, 어느 날이면<br>너에게로 나는, 나는 돌아가<br>다시 여자친구가 있지만<br>너에게로 난 너 forever<br><span class="b">어느, 어느 날 이면</span>너에게로 나는, 나는 돌아가<br>다시 여자친구가 있지만<br>너에게로 난 너 forever<br>너에게로 난 돌아가고 싶어<br>하지만 더는 나는 갈 수 없어<br>',
+            '아마 이건 감기일 거야<br>조금의 열 또 조금의 두통<br>내일이면 지나갈 것 같은데 (지나갈 것 같은데)<br>왜 이리 아픈지 그래 많이 바빴지<br>나를 못 돌봤었지 많은 시간 동안<br><span class="b">Uh 괜찮아 걱정하지 말어</span>이 정도는 끄떡없다고<br>너가 볼 땐 내가 쓰러지겠냐며<br>웃으며 했던 너와의 통화 후에<br>어지러워 바닥을<br>집고 겨우 일어나 앉아 있지 모니터 앞에<br>',
+            '만남은 쉽고 이별은 어려워<br>눈빛에 베일 듯 우린 날카로워<br>마침표를 찍고 난 조금 더 멀리 가려 해<br>만남은 쉽고 이별은 참 어려워<br>아직도 기억나 차 안의 공기가<br><span class="b">처음 들었을 때 마음이 짜릿했던 뭔가가</span>6살이었지만 알았었지 뭔가 다르단 건<br>그렇게 쉽게 만나게 되는 거야 꿈이란 건<br>시간이 흘러서 이제 음악은 내 놀이가 됐고<br>듣고 따라만 부르기엔 내게는 뭔가 부족했어<br>그래서 실행에 옮겼지 방에서 혼자 꿈만 꾸던 모습<br>'
+        ]
+
+        function sleep(ms) {
+            const wakeUpTime = Date.now() + ms;
+            while (Date.now() < wakeUpTime) {}
+        }
+
+        function func(idx) {
+
+            document.querySelector('.title').innerHTML = title[idx - 1]
+            document.querySelector('.artist').innerHTML = artist[idx - 1]
+            document.querySelector('.desc').innerHTML = desc[idx - 1]
+            document.querySelector('.desc').innerHTML = desc[idx - 1]
+
+            for (let i = 1; i <= 4; i ++) {
+                document.querySelector('.t' + i).style.opacity = '40%'
+            }
+            document.querySelector('.t' + idx).style.opacity = '100%'
+        }
+    </script>
+</body>
+</html>
